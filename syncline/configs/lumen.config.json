@@ -1,0 +1,33 @@
+{
+  "_comment": "Syncline config for Lumen. Paths are relative to THIS file's directory.",
+
+  "project_name": "Lumen",
+  "repo_owner": "MrKCodes",
+  "owner_type": "user",
+  "repo_name": "lumen",
+
+  "status_map": {
+    "done": "Done",
+    "in-progress": "In progress",
+    "in_progress": "In progress",
+    "todo": "Todo",
+    "backlog": "Todo"
+  },
+
+  "done_statuses": ["done"],
+
+  "type_field_name": "Work Type",
+
+  "plan_file": "../plan/sprint-status.yaml",
+  "epics_file": "../../docs/epics.md",
+  "manifest_file": "./state/lumen.manifest.json",
+  "state_file": "./state/lumen.import-state.json",
+  "cache_file": "./state/lumen.sync-cache.json",
+
+  "label": "lumen",
+
+  "epic_line_regex": "^\\s{2}(epic-\\d+):\\s*(\\S+)",
+  "story_line_regex": "^\\s{2}(\\d+-\\d+-[a-z0-9-]+):\\s*(\\S+)",
+  "story_key_regex": "^\\d+-\\d+-",
+  "epic_num_from_story_regex": "^(\\d+)-"
+}

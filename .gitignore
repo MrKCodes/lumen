@@ -1,0 +1,29 @@
+# Node / SvelteKit
+web/node_modules/
+web/.svelte-kit/
+web/build/
+web/.env
+web/.env.*
+!web/.env.example
+
+# Go
+importer/lumen-import
+importer/bin/
+*.test
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.local
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+
+# Syncline local state (per its docs: gitignored)
+syncline/configs/state/
+
+# OS
+.DS_Store
+Thumbs.db

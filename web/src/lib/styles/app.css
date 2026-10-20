@@ -1,0 +1,332 @@
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  LUMEN design system                                           ║
+   ║  Editorial-futuristic. Dark. One signal colour of "light".     ║
+   ║  No stock gradients, no rounded-everything, no drop-shadow mush.║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+	/* ink — near-black with a cold blue cast, not pure #000 */
+	--ink-900: #06070d;
+	--ink-800: #0b0d16;
+	--ink-700: #11131f;
+	--ink-600: #181b2b;
+	--ink-500: #232739;
+	--line: #2b3047;
+
+	/* paper / text */
+	--text: #e8eaf2;
+	--text-dim: #9aa0b8;
+	--text-faint: #5f6684;
+
+	/* the "lumen" — luminous flux. one hero colour + two companions */
+	--flux: #c6ff4a; /* acid lumen green-yellow — the light */
+	--flux-soft: #9bd43a;
+	--aurora: #6c5cff; /* violet */
+	--plasma: #ff4d8d; /* magenta */
+	--ice: #35e6ff; /* cyan */
+
+	--good: #3ddc97;
+	--warn: #ffcf5c;
+	--bad: #ff5c7a;
+
+	--radius: 4px; /* sharp, not pill */
+	--radius-lg: 10px;
+	--maxw: 1180px;
+
+	--font-display: 'Space Grotesk', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+	--shadow-flux: 0 0 0 1px rgba(198, 255, 74, 0.4), 0 0 28px -6px rgba(198, 255, 74, 0.45);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background: var(--ink-900);
+	color: var(--text);
+	font-family: var(--font-display);
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+
+	/* layered background: faint grid + aurora glow + film grain */
+	background-image:
+		radial-gradient(1200px 600px at 85% -10%, rgba(108, 92, 255, 0.14), transparent 60%),
+		radial-gradient(900px 500px at 5% 110%, rgba(198, 255, 74, 0.08), transparent 55%),
+		linear-gradient(var(--ink-900), var(--ink-900));
+	background-attachment: fixed;
+}
+
+/* film grain overlay — kills the "flat AI gradient" look */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 0.035;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a {
+	color: var(--flux);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.05;
+}
+
+/* ── typographic utilities ─────────────────────────────────────── */
+.mono {
+	font-family: var(--font-mono);
+}
+.eyebrow {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--text-faint);
+}
+.display {
+	font-size: clamp(2.4rem, 6vw, 4.6rem);
+	letter-spacing: -0.04em;
+	line-height: 0.95;
+}
+
+/* ── layout ────────────────────────────────────────────────────── */
+.wrap {
+	width: 100%;
+	max-width: var(--maxw);
+	margin-inline: auto;
+	padding-inline: 24px;
+}
+
+/* ── surfaces ──────────────────────────────────────────────────── */
+.panel {
+	background: linear-gradient(180deg, var(--ink-700), var(--ink-800));
+	border: 1px solid var(--line);
+	border-radius: var(--radius-lg);
+	position: relative;
+}
+.panel--glow {
+	box-shadow: 0 0 40px -24px rgba(108, 92, 255, 0.8);
+}
+
+/* corner ticks — subtle HUD framing, cheap and distinctive */
+.hud {
+	position: relative;
+}
+.hud::before,
+.hud::after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border: 1px solid var(--flux);
+	opacity: 0.6;
+}
+.hud::before {
+	top: -1px;
+	left: -1px;
+	border-right: 0;
+	border-bottom: 0;
+}
+.hud::after {
+	bottom: -1px;
+	right: -1px;
+	border-left: 0;
+	border-top: 0;
+}
+
+/* ── buttons ───────────────────────────────────────────────────── */
+.btn {
+	font-family: var(--font-mono);
+	font-size: 0.82rem;
+	letter-spacing: 0.04em;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.7em 1.1em;
+	border-radius: var(--radius);
+	border: 1px solid var(--line);
+	background: var(--ink-600);
+	color: var(--text);
+	cursor: pointer;
+	transition:
+		transform 0.08s ease,
+		box-shadow 0.15s ease,
+		border-color 0.15s ease;
+}
+.btn:hover {
+	border-color: var(--text-dim);
+	transform: translateY(-1px);
+}
+.btn:active {
+	transform: translateY(0);
+}
+.btn--flux {
+	background: var(--flux);
+	color: var(--ink-900);
+	border-color: var(--flux);
+	font-weight: 500;
+}
+.btn--flux:hover {
+	box-shadow: var(--shadow-flux);
+}
+.btn--ghost {
+	background: transparent;
+}
+.btn--danger {
+	border-color: color-mix(in oklab, var(--bad) 50%, var(--line));
+	color: var(--bad);
+}
+.btn--danger:hover {
+	background: color-mix(in oklab, var(--bad) 16%, transparent);
+}
+.btn:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* ── forms ─────────────────────────────────────────────────────── */
+label.field {
+	display: block;
+	margin-bottom: 1rem;
+}
+label.field > span {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--text-faint);
+	margin-bottom: 0.4rem;
+}
+input,
+textarea,
+select {
+	width: 100%;
+	font-family: var(--font-display);
+	font-size: 0.95rem;
+	color: var(--text);
+	background: var(--ink-900);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 0.7em 0.85em;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border-color: var(--flux);
+	box-shadow: 0 0 0 3px rgba(198, 255, 74, 0.12);
+}
+
+/* ── chips / tags / badges ─────────────────────────────────────── */
+.chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	padding: 0.25em 0.6em;
+	border-radius: 999px;
+	border: 1px solid var(--line);
+	color: var(--text-dim);
+	background: var(--ink-600);
+}
+.badge-admin {
+	color: var(--ink-900);
+	background: var(--flux);
+	border-color: var(--flux);
+	font-weight: 600;
+}
+
+/* ── misc ──────────────────────────────────────────────────────── */
+.divider {
+	height: 1px;
+	background: var(--line);
+	border: 0;
+	margin: 1.5rem 0;
+}
+.muted {
+	color: var(--text-dim);
+}
+.faint {
+	color: var(--text-faint);
+}
+.error {
+	color: var(--bad);
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+}
+.ok {
+	color: var(--good);
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+}
+
+.grid {
+	display: grid;
+	gap: 18px;
+}
+@media (min-width: 760px) {
+	.grid-2 {
+		grid-template-columns: 1fr 1fr;
+	}
+	.grid-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.grid-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@keyframes pulse-flux {
+	0%,
+	100% {
+		opacity: 0.5;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+.live-dot {
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--flux);
+	box-shadow: 0 0 10px var(--flux);
+	animation: pulse-flux 2s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+	}
+}

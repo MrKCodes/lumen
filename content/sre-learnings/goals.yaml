@@ -1,0 +1,33 @@
+# Lumen goals — SRE crunch sprint dataset.
+# slug is the stable key; entries reference it. See ../README.md.
+
+goals:
+  - slug: linux-internals
+    title: Linux Systems Internals
+    description: >
+      The 9 surfaces the MongoDB Senior SRE loop exposed — log parsing, pipes,
+      open(), page cache, DNS, perf, processes, disk, networking. Priority #1.
+    color: "#36e2b4"
+    target_hours: 40
+    status: active
+
+  - slug: dsa-go
+    title: DSA — Python then Go
+    description: NeetCode order, timed in Python for speed, re-implemented in Go to learn the language.
+    color: "#7c5cff"
+    target_hours: 60
+    status: active
+
+  - slug: system-design
+    title: System Design
+    description: 30+ Staff-level questions, one fully out loud every other day.
+    color: "#ff6b9d"
+    target_hours: 25
+    status: active
+
+  - slug: behavioral
+    title: Behavioral (STAR)
+    description: 8+ stories in STAR form across 7 years of material.
+    color: "#ffd166"
+    target_hours: 10
+    status: active
