@@ -5,6 +5,10 @@ web/build/
 web/.env
 web/.env.*
 !web/.env.example
+# .env.production holds only the PUBLIC Supabase URL + anon key (safe in the
+# browser by design; RLS protects data). Committed so the Cloudflare build is
+# self-contained and never breaks on a missing build-time env var.
+!web/.env.production
 
 # Go
 importer/lumen-import

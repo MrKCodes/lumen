@@ -1,2 +1,0 @@
-# SPA fallback: every unmatched path serves index.html so client routing works.
-/*    /index.html   200
