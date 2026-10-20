@@ -5,6 +5,8 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import Nav from '$lib/components/Nav.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import SideRail from '$lib/components/SideRail.svelte';
 
 	let { children } = $props();
 	let ready = $state(false);
@@ -29,10 +31,14 @@
 </script>
 
 {#if ready && !auth.loading}
-	{#if auth.isAuthed}<Nav />{/if}
-	<main>
-		{@render children()}
-	</main>
+	<div class="shell">
+		{#if auth.isAuthed}<Nav />{/if}
+		<main>
+			{@render children()}
+		</main>
+		<Footer />
+	</div>
+	<SideRail />
 {:else}
 	<div class="boot">
 		<span class="live-dot"></span>
@@ -41,9 +47,14 @@
 {/if}
 
 <style>
+	.shell {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
 	main {
-		min-height: calc(100vh - 62px);
-		padding: 34px 0 80px;
+		flex: 1 0 auto;
+		padding: 34px 0 60px;
 	}
 	.boot {
 		min-height: 100vh;

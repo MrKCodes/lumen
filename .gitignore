@@ -17,9 +17,13 @@ importer/bin/
 !.env.example
 *.local
 
-# EXCEPTION: web/.env.production holds ONLY the PUBLIC Supabase URL + anon key
-# (safe in the browser by design; RLS protects data). Committed so the Cloudflare
-# build is self-contained. This negation is LAST so it wins over .env.* above.
+# EXCEPTION: web/.env.production holds ONLY the PUBLIC Supabase URL + anon key.
+# This is safe and intentional: the anon key is designed to live in the browser
+# (it already ships in the deployed site's JS), and Row-Level Security in Postgres
+# is what actually protects data. It is committed so the Cloudflare build is
+# self-contained. The SECRET service_role key is NOT here — it stays in the
+# untracked root .env, used only by the Go importer. This negation is LAST so it
+# wins over the .env.* rule above.
 !web/.env.production
 
 # Supabase local
