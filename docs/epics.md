@@ -69,12 +69,12 @@
 
 ## Epic 8: Deployment & Launch
 **Goal:** The app is live, documented, and tracked.
-**Status:** in-progress
+**Status:** done
 
 - **Story 8.1** — Create GitHub repo and push. `done`
 - **Story 8.2** — Create GitHub Project board via Syncline. `done`
-- **Story 8.3** — Provision Supabase project + run schema + disable email confirm. `todo`
-- **Story 8.4** — Connect Cloudflare Pages and deploy. `todo`
+- **Story 8.3** — Provision Supabase project + run schema + disable email confirm. `done`
+- **Story 8.4** — Connect Cloudflare Pages and deploy. `done`
 - **Story 8.5** — SETUP.md end-to-end walkthrough. `done`
 
 ---
