@@ -5,5 +5,6 @@ export const LINKS = {
 	profile: 'https://github.com/MrKCodes',
 	org: 'https://github.com/OpsAlchemist',
 	website: 'https://opsalchemistlabs.co.in/',
-	x: 'https://x.com/KubeMonk'
+	x: 'https://x.com/KubeMonk',
+	coffee: 'https://buymeacoffee.com/mrkc'
 };

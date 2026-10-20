@@ -7,6 +7,7 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import SideRail from '$lib/components/SideRail.svelte';
+	import CoffeeButton from '$lib/components/CoffeeButton.svelte';
 
 	let { children } = $props();
 	let ready = $state(false);
@@ -39,6 +40,7 @@
 		<Footer />
 	</div>
 	<SideRail />
+	<CoffeeButton />
 {:else}
 	<div class="boot">
 		<span class="live-dot"></span>
