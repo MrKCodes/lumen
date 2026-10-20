@@ -56,7 +56,9 @@
 			border-color 0.2s ease;
 	}
 	.coffee:hover {
-		width: 232px;
+		/* wide enough for the full message: cup (52) + text + right padding.
+		   bump this if you use a longer message. */
+		width: 304px;
 		border-color: var(--flux);
 		text-decoration: none;
 		box-shadow:
