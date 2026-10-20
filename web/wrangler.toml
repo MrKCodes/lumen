@@ -1,0 +1,9 @@
+# Cloudflare Pages — CLI deploy config (gives you control outside the dashboard).
+#   cd web && pnpm build && npx wrangler pages deploy build --project-name lumen
+#
+# The git-connected flow (dashboard → Connect to Git) is the simplest path and
+# needs none of this; use wrangler when you want to deploy from the CLI/CI.
+
+name = "lumen"
+pages_build_output_dir = "build"
+compatibility_date = "2026-01-01"

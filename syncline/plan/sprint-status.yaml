@@ -46,8 +46,8 @@ development-status:
   7-4-idempotent-upsert-dryrun: done
 
   epic-8: in-progress
-  8-1-create-github-repo: in-progress
-  8-2-create-project-board: in-progress
+  8-1-create-github-repo: done
+  8-2-create-project-board: done
   8-3-provision-supabase: todo
   8-4-connect-cloudflare-pages: todo
-  8-5-setup-walkthrough: in-progress
+  8-5-setup-walkthrough: done
